@@ -253,7 +253,9 @@ void OP_Ex9E(){
 
   if(keypada[key]){
     pc+=2;
-  }
+    //If pressed, then reset input buffer.
+    keypada[key] = 0;
+  } 
 }
 
 //Skip next instruction if key with value of Vx is not pressed
@@ -264,6 +266,9 @@ void OP_ExA1(){
 
   if(!keypada[key]){
     pc += 2;
+  } else {
+    //If pressed, then reset input buffer
+    keypada[key] = 0;
   }
 }
 
