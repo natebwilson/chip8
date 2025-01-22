@@ -4,8 +4,6 @@
 
 //Clear screen
 void OP_00E0(){
-  logput("Executing 00E0\n");
-  logopcode();
   memset(video, 0, sizeof(video));
 }
 
@@ -17,8 +15,6 @@ void OP_00EE(){
 
 //Jump to location
 void OP_1nnn(){
-  logput("Executing 0x1nnn\n");
-  logopcode();
   //Extract lower 12 bits
   uint16_t address = opcode & 0x0FFFu;
   pc = address;
@@ -65,8 +61,6 @@ void OP_5xy0(){
 
 //Set Vx == kk
 void OP_6xkk(){
-  logput("Executing 6xkk\n");
-  logopcode();
   uint8_t Vx = (opcode & 0x0F00u) >> 8u;
   uint8_t byte = (opcode & 0x00FFu);
   registers[Vx] = byte;
@@ -181,8 +175,6 @@ void OP_9xy0(){
 
 //Set I = nnn
 void OP_Annn(){
-  logput("Executing Annn\n");
-  logopcode();
   uint16_t address = opcode & 0x0FFFu;
 
 	memindex = address;
@@ -205,8 +197,6 @@ void OP_Cxkk(){
 
 //Draw n-byte sprite starting at memory location I at (Vx, Vy), set VF = collision.
 void OP_Dxyn(){
-  logput("Executing Dxyn\n");
-  logopcode();
   uint8_t Vx = (opcode & 0x0F00u) >> 8u;
 	uint8_t Vy = (opcode & 0x00F0u) >> 4u;
 	uint8_t height = opcode & 0x000Fu;
@@ -229,8 +219,6 @@ void OP_Dxyn(){
 			// Sprite pixel is on
 			if (spritePixel)
 			{
-        logput("Sprite pixel was on, pixel flipped\n");
-        logput("Editing %d element value: ", (yPos + row) * VIDEO_WIDTH + (xPos + col));
 				// Screen pixel also on - collision
 				if (*screenPixel == 0xFFFFFFFF)
 				{
@@ -239,7 +227,6 @@ void OP_Dxyn(){
 
 				// Effectively XOR with the sprite pixel
 				*screenPixel ^= 0xFFFFFFFF;
-        logput("%x\n", *screenPixel);
 			}
 		}
 	}
@@ -377,8 +364,6 @@ void OP_Fx1E(){
 
 //Set I = sprite location for digit Vx
 void OP_Fx29(){
-  logput("Executing Fx29\n");
-  logopcode();
   uint8_t Vx = (opcode & 0x0f00u) >> 8u;
   uint8_t digit = registers[Vx];
 

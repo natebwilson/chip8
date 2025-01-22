@@ -21,7 +21,7 @@ void initVideo(){
   wrapper = newwin((VIDEO_HEIGHT + 2), (VIDEO_WIDTH + 2), 0,0);
   box(wrapper, 0, 0);
   display = derwin(wrapper, VIDEO_HEIGHT, VIDEO_WIDTH, 1, 1); 
-  logput("Video intialized");
+  logput("Video intialize\n");
 }
 
 int inputMonitor(){

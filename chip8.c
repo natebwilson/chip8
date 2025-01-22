@@ -6,7 +6,6 @@ uint8_t randByte() {
 }
 
 void init(){
-  debug = false;
 
   logStarted = 0;
 
@@ -41,6 +40,8 @@ void init(){
 void cycle(){
   opcode = (memory[pc] << 8u) | memory[pc+1]; //Retrieves the next two bytes, stores lower address in most significant byte
 
+  logput("Instruction Ox%x executing at memory location 0x%x\n", opcode, pc);
+
   pc += 2; //Increment program counter
 
   //Decode and execute
@@ -59,13 +60,18 @@ void cycle(){
 
 int main(int argc, char *argv[]){
 
-  if(argc != 3){
-    printf("Usage: %s <Delay> <ROM>\n", argv[0]);
+  if(argc < 3 || argc > 4){
+    printf("Usage: %s <Delay> <ROM> (Debug)\n", argv[0]);
     return(1);
   }
 
   cycleDelay = atoi(argv[1]);
   char const *fileName = argv[2];
+  if(argc == 4){
+    debug = atoi(argv[3]);
+  } else {
+    debug = false;
+  }
 
   init();
   if(loadRom(fileName) == 1){
