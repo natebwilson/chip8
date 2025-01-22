@@ -469,7 +469,7 @@ void initTables(){
 
 
 void Table0(){
-  //Ensures second nibble is E
+  //Ensures second nibble is E to ensure 0x0000 doesn't trigger screen clear
   if(((opcode & 0xf0u) >> 4u) == 0xE){
     table0[opcode & 0x000fu]();
   }

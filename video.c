@@ -26,7 +26,7 @@ void initVideo(){
 int inputMonitor(){
 
   int ch = getch();
-  int i;
+  // int i;
   // if(keyUsed){
   //   for(i = 0; i < KEYCOUNT; i++){
   //     //Reset keypad buffer
@@ -58,6 +58,8 @@ int inputMonitor(){
   return 0;
 }
 
+
+
 void videoUpdate(){
   int row;
   int col;
@@ -71,6 +73,7 @@ void videoUpdate(){
       } 
     }
   }  
+
 
   wrefresh(wrapper); 
   wrefresh(display);
