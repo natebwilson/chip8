@@ -28,13 +28,13 @@ int inputMonitor(){
 
   int ch = getch();
   int i;
-  if(keyUsed){
-    for(i = 0; i < KEYCOUNT; i++){
-      //Reset keypad buffer
-      keypada[i] = 0;
-    }
-    keyUsed = false;
-  }
+  // if(keyUsed){
+  //   for(i = 0; i < KEYCOUNT; i++){
+  //     //Reset keypad buffer
+  //     keypada[i] = 0;
+  //   }
+  //   keyUsed = false;
+  // }
 
   switch(ch){
     case '\x1b': return 1;
