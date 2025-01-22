@@ -6,6 +6,8 @@ uint8_t randByte() {
 }
 
 void init(){
+  debug = false;
+
   logStarted = 0;
 
   //Init program counter to start address

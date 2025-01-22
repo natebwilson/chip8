@@ -1,6 +1,10 @@
 #include "global.h"
 
 void logopcode(){
+  if(!debug){
+    return;
+  }
+
   if(opcode == 0x0000u){
     return;
   }
@@ -18,6 +22,10 @@ void logopcode(){
 }
 
 void logput(const char *fmt, ...){
+  if(!debug){
+    return;
+  }
+
   va_list ap;
   va_start(ap, fmt);
   if(logStarted == 0){

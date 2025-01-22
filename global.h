@@ -55,6 +55,7 @@ void initTables();
 int loadRom(const char *filename);
 void logput(const char *fmt, ...);
 void logopcode();
+extern bool debug;
 extern int logStarted;
 
 

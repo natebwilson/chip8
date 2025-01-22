@@ -19,6 +19,7 @@ uint8_t registers[REGISTERS];
 uint16_t memindex;
 uint8_t keypada[KEYCOUNT];
 bool keyUsed;
+bool debug;
 uint8_t delayTimer;
 uint8_t soundTimer;
 
