@@ -7,7 +7,6 @@ int logStarted;
 
 int videoScale;
 int cycleDelay;
-
 int pc;
 int sp;
 uint16_t opcode;
@@ -28,7 +27,7 @@ uint8_t fontset[FONTSET_SIZE] = {
   /** EXPLANATION
    * Each character is represented as a 5x8 array of 1/0s (device is black/white)
    * For example, 0 is:
-   * 
+   *
    *0xF0 = 11110000
    *0x90 = 10010000
    *0x90 = 10010000
