@@ -434,7 +434,6 @@ void initTables(){
   table[0xF] = &TableF;
 
   //Table0
-  //Issue is here I'm pretty sure
   table0[0x0] = &OP_00E0;
   table0[0xE] = &OP_00EE;
 
